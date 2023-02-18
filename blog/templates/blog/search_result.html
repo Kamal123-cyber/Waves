@@ -1,0 +1,15 @@
+{% extends 'blog/index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+ <main class="flex-shrink-0">
+    <br>
+    <div class="container">
+      {% for result in post_list %}
+      <a href="{% url 'home-detail' post.pk %}"><span class="font-weight-bold">{{ result.title }}</span></a>
+        <span class="text-muted">by {{ result.author }}</span>
+        </div>
+        <div class="card-body">{{ result.body }}</div>
+      {% endfor %}
+    </div>
+  </main>
+{% endblock content %}

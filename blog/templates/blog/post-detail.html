@@ -1,0 +1,42 @@
+{% extends 'blog/index.html' %}
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <img class="rounded-circle account-img" height=60, width=60 src="{{ post.author.profile.image.url }}">
+    <a href="{% url 'home-detail' post.pk %}"><span class="font-weight-bold">{{ object.title }}</span></a>
+    <span class="text-muted">by {{ object.author }}</span>
+  </div>
+  <div class="card-body">{{ object.body }}</div>
+  {% if user.is_authenticated %}
+      <div class="card-body text-right"><a class="btn btn-outline-primary btn-sm" href="{% url 'update' post.pk %}">Edit Post</a>  <a class="btn btn-outline-danger btn-sm" href="{% url 'post-delete' post.pk %}">Delete Post</a><div>
+        {% else %}
+        <a href="{% url 'login' %}" class="text-center">log In</a>
+    {%endif%}
+  </div>
+  <!--<div class="col-md-8 card mb-4  mt-3 ">
+    <div class="card-body">
+      <h2>{{ comments.count }} comments</h2>
+
+      {% for comment in comments %}
+      <div class="comments" style="padding: 10px;">
+        <p class="font-weight-bold">
+          {{ comment.name }}
+          <span class=" text-muted font-weight-normal">
+            {{ comment.created_on }}
+          </span>
+        </p>
+        {{ comment.body | linebreaks }}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+<main class="flex-shrink-0">
+    <br>
+    <div class="container">
+      <h4 class="mt-5"><a href="{% url 'home-detail' post.pk %}">{{ object.title }}</a></h4>
+      <p class="lead">{{ object.body }}</p>
+      <a href="{% url 'update' post.pk %}"><button type="button" class="btn btn-outline-primary btn-sm">Edit Post</button></a>
+      <a href="{% url 'post-delete' post.pk %}"><button type="button" class="btn btn-outline-danger btn-sm">Delete Post</button></a>
+    </div>
+  </main>-->
+{% endblock content %}

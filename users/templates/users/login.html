@@ -1,0 +1,15 @@
+{% extends 'blog/index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+ <main class="flex-shrink-0">
+    <br>
+    <div class="container">
+      <h4 class="mt-5">Login</h4>
+      <form method="post">{% csrf_token %}
+        {{ form|crispy }}
+        <br>
+        <button type="submit" class="btn btn-outline-success btn-sm">Log In</button> 
+      </form>
+    </div>
+  </main>
+{% endblock content %}

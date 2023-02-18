@@ -1,0 +1,26 @@
+{% extends 'blog/index.html' %}
+{% block content %}
+{% for post in object_list %}
+<div class="card">
+  <div class="card-header">
+    <img class="rounded-circle account-img" height=60, width=60 src="{{ post.author.profile.image.url }}">
+    <a href="{% url 'home-detail' post.pk %}"><span class="font-weight-bold">{{ post.title }}</span></a>
+    <span class="text-muted">by {{ post.author }} {{post.date}}</span>
+  </div>
+  <div class="card-body">{{ post.body }}</div>
+  <a class="text-center" href="#">comments</a>
+</div>
+<br/>
+<!--<div class="card">
+<main class="flex-shrink-0">
+    <div class="container">
+      <h4 class="mt-5"><a href="{% url 'home-detail' post.pk %}">{{ post.title }}</a></h4>
+      <p class="lead">{{ post.body }}</p>
+    </div>
+
+  </main>
+</div>-->
+  {% endfor %}
+
+{% endblock content %}
+

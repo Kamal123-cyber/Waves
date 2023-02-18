@@ -1,0 +1,11 @@
+{% extends 'blog/index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+ <main class="flex-shrink-0">
+    <br>
+    <div class="container">
+      <h2>You have been Logged out</h2>
+      <a href= "{% url 'login'%}">Log In Again</a>
+    </div>
+  </main>
+{% endblock content %}
