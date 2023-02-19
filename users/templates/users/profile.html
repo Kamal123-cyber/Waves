@@ -3,7 +3,8 @@
 {% block content %}
  <main class="flex-shrink-0">
     <br>
-    <div class="container">
+    <div class="card">
+      <div class="card-header">
       <h4 class="mt-5">Profile</h4>
       <br/>
       <img class="rounded-circle account-img" height=65, width=65 src="{{ user.profile.image.url }}">
@@ -16,6 +17,7 @@
       <button type="submit" class="btn btn-outline-primary btn-sm">Update</button>
 
     </form>
+    </div>
     </div>
   </main>
 {% endblock content %}

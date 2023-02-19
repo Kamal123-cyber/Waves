@@ -3,7 +3,8 @@
 {% block content %}
  <main class="flex-shrink-0">
     <br>
-    <div class="container">
+    <div class="card">
+      <div class="card-header">
       <h4 class="mt-5">New Post</h4>
       <form action="" method="post">{% csrf_token %}
         {{ form|crispy }}<br>
@@ -11,6 +12,7 @@
         <a class="btn btn-outline-primary btn-sm" type="submit">Post</a>-->
         <button type="submit" class="btn btn-outline-primary btn-sm">Post</button> 
       </form>
+    </div>
     </div>
   </main>
 {% endblock content %}

@@ -1,7 +1,8 @@
 {% extends 'blog/index.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
- <main class="flex-shrink-0">
+
+<main class="flex-shrink-0">
     <br>
     <div class="container">
       <h4 class="mt-5">Sign Up</h4>
@@ -9,8 +10,8 @@
         {{ form|crispy }}<br>
         <!--<input type="submit" value="Sign Up">-->
         <button type="submit" class="btn btn-outline-primary btn-sm">Sign Up</button>
-
+        <a href="{% url 'login' %}">already have an account</a>
       </form>
     </div>
-  </main>
+</main>
 {% endblock content %}

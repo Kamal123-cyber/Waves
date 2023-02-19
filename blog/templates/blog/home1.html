@@ -1,12 +1,15 @@
 {% extends 'blog/index.html' %}
 {% block content %}
 <main role="main" class="container">
-    <div class="jumbotron">
-        <h2>ChitChat App</h2>
+
+    <div class="card">
+        <div class="card-header">
+        <h2>Waves Blog App</h2>
         <p>A ChitChat app designed for the posting user view in front of the world</p>
         <p class="lead">
-            <a class="btn btn-primary btn-lg" href="{% url 'post-home' %}" role="button">View All Post</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'post-home' %}" role="button">View All Post</a>
         </p>
+    </div>
     </div>
 </main>
 {% endblock content %}

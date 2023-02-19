@@ -14,6 +14,7 @@ from django.shortcuts import render, get_object_or_404
 class BlogListView(ListView):
     model = Post
     template_name = 'blog/home.html'
+    paginate_by = 4
 
 class BlogDetailView(DetailView):
     model = Post
@@ -62,7 +63,8 @@ class BlogDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 def Home(request):
     return render(request, 'blog/home1.html')
 
-
+def About(request):
+    return render(request, 'blog/about.html')
 
 
 
