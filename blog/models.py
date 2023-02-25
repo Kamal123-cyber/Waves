@@ -20,9 +20,11 @@ class Post(models.Model):
         return reverse('home-detail', args=[str(self.pk)])
 
 class Comment(models.Model):
-    comm = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    commen = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='commen', default=False)
+    name = models.CharField(max_length=40, default=False)
     body = models.TextField()
+    active = models.BooleanField(default=True)
     date = models.DateTimeField(auto_now_add=True)
 
+    
    
