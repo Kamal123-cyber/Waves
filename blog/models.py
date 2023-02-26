@@ -2,6 +2,7 @@ from django.urls import reverse
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
+from PIL import Image
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 # Create your models here.
@@ -18,6 +19,7 @@ class Post(models.Model):
             return self.image.url
         else:
             return None
+        
     
     def __str__(self):
         return self.title
