@@ -14,7 +14,7 @@ from .forms import CommentForm
 class BlogListView(ListView):
     model = Post
     template_name = 'blog/home.html'
-    paginate_by = 4
+    paginate_by = 10
 
 class BlogDetailView(DetailView):
     model = Post
@@ -22,7 +22,7 @@ class BlogDetailView(DetailView):
 class BlogCreateView(LoginRequiredMixin, CreateView):
     model=Post
     template_name = 'blog/post_new.html'
-    fields = ['title','body']  
+    fields = ['title','body', 'image']  
 
     def form_valid(self, form):
         form.instance.author = self.request.user

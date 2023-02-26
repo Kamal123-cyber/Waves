@@ -7,6 +7,7 @@
     <span class="text-muted">by {{ object.author }}</span>
   </div>
   <div class="card-body">{{ object.body }}</div>
+  <img class="img-rounded" src="{{ post.imageURL }}" heigth = 200 width=200>
   {% if user.is_authenticated %}
       <div class="card-body text-right"><a class="btn btn-outline-primary btn-sm" href="{% url 'update' post.pk %}">Edit Post</a>  <a class="btn btn-outline-danger btn-sm" href="{% url 'post-delete' post.pk %}">Delete Post</a><div>
         {% else %}
