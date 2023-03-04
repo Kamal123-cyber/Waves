@@ -11,8 +11,14 @@
   <div class="container">
     <img class="rounded" src="{{ post.imageURL }}" heigth = 100 width=100>
   </div>
-  
-  <a class="text-center" href="#">comments</a>
+  <br/>
+  <div class="container">
+  <div class="mt-2 text-right">
+  <div class="d-grid gap- 3d-md-flex justify-content-md-end"><a href="{% url 'comm' post.pk %}" class="text-right"><button type="button" class="btn btn-primary btn-sm">comments</button></a>
+  </div>
+  </div>
+  </div>
+  <br/>
 </div>
 <br/>
 <!--<div class="card">

@@ -1,13 +1,12 @@
 
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from . models import Post, Comment
+from . models import Post, comment
 from django.urls import reverse_lazy
 from django.db.models import Q 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 from django.shortcuts import render, get_object_or_404
-from .forms import CommentForm
 
 # Create your views here.
 
@@ -33,7 +32,7 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
 class BlogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     template_name = 'blog/post-update.html'
-    fields = ['title','body']
+    fields = ['title','body','image']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -78,15 +77,16 @@ def search(request):
     return render(
         request, template_name, {'results': results})
 
-"""def Comments(request):
-    cments = Comment.objects.all()
-    context = {'cments':cments}
-    return render(request, 'blog/comments.html', context)"""
+
 def Home(request):
     return render(request, 'blog/home1.html')
 
 def About(request):
     return render(request, 'blog/about.html')
+
+def Comments(request,post_pk):
+    comme = comment.objects.filter(post_id=post_pk)
+    return render(request, 'blog/comment.html',{'comme':comme})
 
 
 
