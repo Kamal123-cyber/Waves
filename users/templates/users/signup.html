@@ -4,6 +4,8 @@
 
 <main class="flex-shrink-0">
     <br>
+    <div class="card">
+      <div class="card-header">
     <div class="container">
       <h4 class="mt-5">Sign Up</h4>
       <form action="" method="post">{% csrf_token %}
@@ -12,6 +14,8 @@
         <button type="submit" class="btn btn-outline-primary btn-sm">Sign Up</button>
         <a href="{% url 'login' %}">already have an account</a>
       </form>
+    </div>
+    </div>
     </div>
 </main>
 {% endblock content %}

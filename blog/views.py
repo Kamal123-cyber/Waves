@@ -5,7 +5,6 @@ from . models import Post, comment
 from django.urls import reverse_lazy
 from django.db.models import Q 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
@@ -54,7 +53,7 @@ class BlogDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == post.author:
             return True
         return False
-
+    
 #class SearchResultView(ListView):
  #   model = Post
   #  template_name = 'blog/search.html'
