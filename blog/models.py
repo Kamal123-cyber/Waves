@@ -9,7 +9,7 @@ from django.contrib.auth import get_user_model
 
 class Post(models.Model):
     title = models.CharField(max_length=32)
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='author')
     body = models.TextField()
     image = models.ImageField(upload_to='post_file', blank=True, null=True)
     date = models.DateTimeField(default=timezone.now)
