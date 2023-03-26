@@ -5,7 +5,7 @@ from .forms import UserRegisterForm, ProfileUpdateForm, UserUpdateForm
 from django.contrib import messages
 from .models import Profile
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import ChangePasswordForm
+from .forms import ChangePasswordForm, PasswordResetForm
 #from django.contrib.messages.views import SuccessMessageMixin
 # Create your views here.
 
@@ -35,17 +35,21 @@ def Profile(request):
     context = {'user_form':user_form, 'profile_form':profile_form}
     return render(request, 'users/profile.html', context)
 
-def password_change(request):
-    user = request.user
-    if request.method =='POST':
-        form = ChangePasswordForm(user, request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, f'Your password is changed')
-            return redirect('login')
-        else:
-            for error in list(form.error.values()):
-                messages.error(request, error)
-    else:
-        form = ChangePasswordForm(user)
-    return render(request, 'users/password_change.html')
+# def password_change(request):
+#     user = request.user
+#     if request.method =='POST':
+#         form = ChangePasswordForm(user, request.POST)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, f'Your password is changed')
+#             return redirect('login')
+#         else:
+#             for error in list(form.error.values()):
+#                 messages.error(request, error)
+#     else:
+#         form = ChangePasswordForm(user)
+#     return render(request, 'users/password_change.html')
+
+def password_reset_request(request):
+    form =PasswordResetForm()
+    return render(request, "users/password_reset.html", context={"form": form})

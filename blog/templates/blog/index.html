@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -88,7 +88,7 @@
       <div class="container-fluid">{% if user.is_authenticated %}
       <h4>Hello {{ user.username }}</h4>
       {% else %}
-      <h4>You are not logged In</h4>
+      <div class="alert alert-danger" role="alert">You are not logged In</div>
       {% endif %} </div>
       
       {% if messages %}

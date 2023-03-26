@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'storages',
     'rest_framework',
-    'api.apps.ApiConfig'
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
@@ -155,3 +155,9 @@ AWS_S3_SIGNATURE_VERSION = "s3v4"
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'mauryakamal42@gmail.com'
+EMAIL_HOST_PASSWORD = 'vklejpyzccgudvtg' 
