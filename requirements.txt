@@ -15,3 +15,5 @@ six==1.16.0
 sqlparse==0.4.3
 tzdata==2022.7
 urllib3==1.26.14
+django-rest-framework==0.1.0
+djangorestframework==3.14.0
