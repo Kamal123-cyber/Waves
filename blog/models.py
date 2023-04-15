@@ -27,16 +27,11 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('home-detail', args=[str(self.pk)])
 
-
-class comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
-    name = models.CharField(max_length=20, blank=False)
-    body = models.TextField()
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comment_post')
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
-
-    def __str__(self) -> str:
-        return self.name
-
 
     
    

@@ -1,11 +1,13 @@
 
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from . models import Post, comment
+from . models import Post
 from django.urls import reverse_lazy
 from django.db.models import Q 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect
+from .forms import CommentForm
 
 # Create your views here.
 
@@ -83,10 +85,20 @@ def Home(request):
 def About(request):
     return render(request, 'blog/about.html')
 
-def Comments(request,post_pk):
-    comme = comment.objects.filter(post_id=post_pk)
-    return render(request, 'blog/comment.html',{'comme':comme})
 
-
+def add_comment(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    comm = post.comment_post.all()
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.author = request.user
+            comment.save()
+            return HttpResponseRedirect(request.path_info)
+    else:
+        form = CommentForm()
+    return render(request, 'blog/add_comment.html', {'form': form, 'comm':comm})
 
 
