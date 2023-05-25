@@ -18,7 +18,7 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-
+from payments import urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
@@ -34,6 +34,9 @@ urlpatterns = [
     path('password-reset-complete/',auth_views.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'),
          name='password_reset_complete'),
     path('api/', include('api.urls')),
+    path('razorpay/', include('payments.urls')),
+    path('stripe/', include('stripe_payment.urls')),
+    #path("razorpay/", include(urls), name="urls")
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

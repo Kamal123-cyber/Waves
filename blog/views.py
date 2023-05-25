@@ -85,6 +85,9 @@ def Home(request):
 def About(request):
     return render(request, 'blog/about.html')
 
+def Donate(request):
+    return render(request, 'blog/donations.html')
+
 
 def add_comment(request, post_id):
     post = get_object_or_404(Post, id=post_id)

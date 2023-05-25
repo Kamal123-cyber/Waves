@@ -1,0 +1,20 @@
+{% extends 'blog/index.html' %}
+{% block content %}
+{% load static %}
+  <title>Payment Options</title>
+  <div class="container">
+    <div class="card">
+        <div class="card-header">
+          <h1>Payment Options</h1>
+          <div class="payment-option">
+            <img src="{% static 'stripe_payment/strip-logo.png' %}" alt="Stripe Logo">
+            <a class='btn btn-primary' href="{% url 'payment_view' %}">Pay with Stripe</a></button>
+          </div>
+          <div class="payment-option">
+            <img src="razorpay-logo.png" alt="Razorpay Logo">
+           <a class='btn btn-primary' href="#">Pay with Razorpay</a></button>
+          </div>
+        </div>
+    </div>
+  </div>
+  {% endblock %}
