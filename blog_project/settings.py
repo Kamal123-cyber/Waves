@@ -49,8 +49,6 @@ INSTALLED_APPS = [
     'storages',
     'rest_framework',
     'api.apps.ApiConfig',
-    'payments',
-    'stripe_payment',
 ]
 
 MIDDLEWARE = [
@@ -169,9 +167,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'corpwaves1@gmail.com'
 EMAIL_HOST_PASSWORD = 'xumohnumsjbbdgjq' 
-RAZORPAY_KEY_ID = 'rzp_test_5XKZFFelqusIpq'
-RAZORPAY_KEY_SECRET = 'QFvS3DgUGUvPf1ocR73AQFcC'
-
-STRIPE_PUBLIC_KEY = 'pk_test_51N55o1SDul0f15Zzrcaj5LxXsmnGznniAFSYIMYp4zA9zZ2jG2GSTihxG8iSOkhKZ1ziJk67a7ak1lSD7DYnu07s00LkkEaqfL'
-STRIPE_SECRET_KEY = 'sk_test_51N55o1SDul0f15Zz6wwFbiOu1vntwO82behaVvTH4LaNgEQj0pZABIY8EDQeMse64pFkPVYUTYSIL5QwNj7utX3d00fpvEKSMW'
-STRIPE_API_VERSION = '2020-08-27'
+# RAZORPAY_KEY_ID = 'rzp_test_5XKZFFelqusIpq'
+# RAZORPAY_KEY_SECRET = 'QFvS3DgUGUvPf1ocR73AQFcC'
+#
+# STRIPE_PUBLIC_KEY = 'pk_test_51N55o1SDul0f15Zzrcaj5LxXsmnGznniAFSYIMYp4zA9zZ2jG2GSTihxG8iSOkhKZ1ziJk67a7ak1lSD7DYnu07s00LkkEaqfL'
+# STRIPE_SECRET_KEY = 'sk_test_51N55o1SDul0f15Zz6wwFbiOu1vntwO82behaVvTH4LaNgEQj0pZABIY8EDQeMse64pFkPVYUTYSIL5QwNj7utX3d00fpvEKSMW'
+# STRIPE_API_VERSION = '2020-08-27'
